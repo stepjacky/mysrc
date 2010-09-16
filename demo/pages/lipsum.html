@@ -1,0 +1,19 @@
+﻿<button id="cmd">  命令测试按钮  </button>
+<script type="text/javascript">
+  var  myWindow = function(){ 
+			new MUI.Window({
+				id: 'mywindowxss',
+				title: 'My Window',
+				contentURL: 'pages/tips.html',
+				width: 340,
+				height: 150
+			});
+    }; 
+	
+	$$("#cmd").addEvent("click",function(e){
+	    new Event(e).stop();
+		myWindow();
+	
+	});
+
+</script>
