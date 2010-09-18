@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 .error-border{
 	border:1px red solid;
-   
-   	
+    background-color:#fc3;
 }

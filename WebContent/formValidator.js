@@ -1,13 +1,25 @@
-function FormValidator(form, userRules, userMessages) {
-    
-	// alert(typeof form);
+function FormValidator(form, userRules, userMessages,ePanel) {
+   
+	if(!form || !userRules || !userMessages){
+		throw new Error("no enough arguments");
+	}
+	
 	this.formObject = null;
 	if(typeof form == "object" ){
 		this.formObject=form;
 	}else if(typeof form == "string" ){
 		this.formObject = document.getElementById(form) || document.getElementsByTagName(form)[0] || document.getElementsByName(form)[0];
 	}else{
-		throw new TypeError("argument['form'] ether is a string   or a object present a form");
+		throw new TypeError("argument['form'] ether is a string[id]  or a object present a form");
+	}
+	
+	this.errorPanel =  null;
+	if(typeof ePanel == "object" ){
+		this.errorPanel=ePanel;
+	}else if(typeof ePanel == "string" ){
+		this.errorPanel = document.getElementById(ePanel) || document.getElementsByName(form)[0];
+	}else{
+		throw new TypeError("argument['ePanel'] ether is a string[id] or a object present the container");
 	}
 	
 	
@@ -90,7 +102,8 @@ FormValidator.prototype = {
 				messages.push(msg);
 			}
 
-		}
+		}// end of for loop
+		
 		for (key in rules) {
 			var hasIt = false;
 			for ( var i = 0; i < formData.length; i++) {
@@ -118,7 +131,9 @@ FormValidator.prototype = {
 	/**
 	 * @author 汉图
 	 * @throws TypeError
-	 * 
+	 * @param formData 表单数组
+	 * @param fieldName 要获取的name属性
+	 * @return 返回null或者表单元素对象
 	 */
 	findFieldData : function(formData, fieldName) {
 		if (fieldName == null) {
