@@ -8,6 +8,98 @@
 <script	src="formValidator.js" type="text/javascript"></script>
 </head>
 <body>
-
+      <form action="test.php" method="post">
+        <table width="60%" border="1" align="center">
+        <thead>
+          <tr>
+            <td><div id="errorPanel"></div></td>
+          </tr>
+        </thead>
+         <tr>
+            <td align="center"><label>
+              <input type="submit" name="button" value="提交" />
+            </label></td>
+          </tr>
+          <tr>
+            <th bgcolor="#CC9900" scope="col">用户注册</th>
+          </tr>
+          <tr>
+            <td>用户名
+            <input type="text" name="name" id="name" /></td>
+          </tr>
+          <tr>
+            <td><label>密码
+              <input type="password" name="password" id="password" />
+            </label></td>
+          </tr>
+          <tr>
+            <td><label>重复密码
+              <input type="password" name="password2" id="password2" />
+            </label></td>
+          </tr>
+          <tr>
+            <td bgcolor="#99CC00">性别</td>
+          </tr>
+          <tr>
+            <td><p>
+              <label>
+                  <input type="radio" name="sex" value="male" id="sex_0" />
+              男</label>
+                <br />
+                <label>
+                  <input type="radio" name="sex" value="fomale" id="sex_1" />
+                  女</label>
+                <br />
+            </p></td>
+          </tr>
+          <tr>
+            <td bgcolor="#99CC00">爱好</td>
+          </tr>
+          <tr>
+            <td><p>
+              <label>
+                <input type="checkbox" name="interest[]" value="move" id="interest_0" />
+                运动</label>
+              <br />
+              <label>
+                <input type="checkbox" name="interest[]" value="reading" id="interest_1" />
+                阅读</label>
+              <br />
+              <label>
+                <input type="checkbox" name="interest[]" value="music" id="interest_3" />
+                音乐</label>
+              <br />
+            </p></td>
+          </tr>
+          <tr>
+            <td bgcolor="#99CC00">学历
+              <select name="education" id="education">
+                <option value="min">小学</option>
+                <option value="collage" selected="selected">大学</option>
+                <option value="boss">博士</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td height="86"><label>用过的浏览器
+              <select name="tools[]" size="5" multiple="multiple" id="tools">
+                <option value="ie">IE</option>
+                <option value="firefox">火狐</option>
+                <option value="chrome">谷歌</option>
+              </select>
+            </label></td>
+          </tr>
+          <tr>
+            <td height="80" bgcolor="#99CC00"><label>个人介绍
+              <textarea name="memo" id="memo" cols="45" rows="5"></textarea>
+            </label></td>
+          </tr>
+          <tr>
+            <td align="center"><label>
+              <input type="submit" name="button" value="提交" />
+            </label></td>
+          </tr>
+        </table>
+      </form>
+     <script type="text/javascript" src="test.js"></script>
 </body>
 </html>
