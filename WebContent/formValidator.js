@@ -1,46 +1,50 @@
-function FormValidator(form, userRules, userMessages,ePanel) {
-   
-	if(!form || !userRules || !userMessages){
+function FormValidator(cfg) {
+	// form, userRules, userMessages,ePanel
+	if (!cfg.form || !cfg.rule || !cfg.message) {
 		throw new Error("no enough arguments");
 	}
-	
+	this.config = cfg;
+	this.autoSubmit = cfg.autoSubmit;
 	this.formObject = null;
-	if(typeof form == "object" ){
-		this.formObject=form;
-	}else if(typeof form == "string" ){
-		this.formObject = document.getElementById(form) || document.getElementsByTagName(form)[0] || document.getElementsByName(form)[0];
-	}else{
-		throw new TypeError("argument['form'] ether is a string[id]  or a object present a form");
+	if (typeof cfg.form == "object") {
+		this.formObject = cfg.form;
+	} else if (typeof cfg.form == "string") {
+		this.formObject = document.getElementById(cfg.form)
+				|| document.getElementsByTagName(cfg.form)[0]
+				|| document.getElementsByName(cfg.form)[0];
+	} else {
+		throw new TypeError(
+				"argument['cfg.form'] ether is a string[id]  or a object present a form");
 	}
-	
-	this.errorPanel =  null;
-	if(typeof ePanel == "object" ){
-		this.errorPanel=ePanel;
-	}else if(typeof ePanel == "string" ){
-		this.errorPanel = document.getElementById(ePanel) || document.getElementsByName(form)[0];
-	}else{
-		throw new TypeError("argument['ePanel'] ether is a string[id] or a object present the container");
+
+	this.errorPanel = null;
+	if (typeof cfg.errorContainor == "object") {
+		this.errorPanel = cfg.errorContainor;
+	} else if (typeof cfg.errorContainor == "string") {
+		this.errorPanel = document.getElementById(cfg.errorContainor)
+				|| document.getElementsByName(cfg.errorContainor)[0];
+	} else {
+		throw new TypeError(
+				"argument['cfg.errorContainor'] ether is a string[id] or a object present the container");
 	}
-	
-	
-	this.userRules = userRules;
-	this.userMessages = userMessages;
+
+	this.userRules = cfg.rule;
+	this.userMessages = cfg.message;
 }
 FormValidator.prototype = {
 	constructor : FormValidator,
-	validate : function(debug) {
-	    var rules = this.userRules;
-	    var vMsg = this.userMessages;
-        var formData = this.serialize();
+	validate : function() {
+		var rules = this.userRules;
+		var vMsg = this.userMessages;
+		var formData = this.serialize();
 		var nextLine = '\n<br/>';
 		var errorNames = [];
+		var restNames = [];
 		var messages = [];
 		var msg = '';
-		var dbg = '';
 		for ( var i = 0; i < formData.length; i++) {
 			var node = formData[i];
 			// var thisObj = $('input[name='+node.name+']');
-			dbg += node.name + '<br/>';
 			var r = rules[node.name];
 			// 没有配置验证规则
 			if (!r)
@@ -54,14 +58,12 @@ FormValidator.prototype = {
 				mms = nameMsg + '需要填写此字段';
 				if (vm.required)
 					mms = vm.required;
-				// thisObj.css('required');
 
 			}
 			if (r.equals) {
 
 				var targetName = r.equals;
 				var edata = findFieldData(formData, targetName);
-				// alert(edata.name+"["+targetName+"]=="+edata.value)
 				if (val != edata.value) {
 					mms = nameMsg + ' 必须等于 [' + targetName + "]";
 					if (vm.equals)
@@ -100,39 +102,71 @@ FormValidator.prototype = {
 				msg = "<li class='error-message'>" + nameMsg + mms + nextLine
 						+ " </li>";
 				messages.push(msg);
+				errorNames.push(node.name);
+			} else{
+				restNames.push(node.name);
 			}
 
 		}// end of for loop
-		
-		for (key in rules) {
-			var hasIt = false;
-			for ( var i = 0; i < formData.length; i++) {
-				var field = formData[i];
-				if (key == field.name)
-					hasIt = true;
+
+		/*
+		 * for (key in rules) { var hasIt = false; for ( var i = 0; i <
+		 * formData.length; i++) { var field = formData[i]; if (key ==
+		 * field.name) hasIt = true;
+		 *  } if (hasIt == false) { var msg = "<li class='error-message'>" +
+		 * "字段:" + key + "必须输入" + nextLine + "</li>"; if (vMsg[key]) msg = "<li class='error-message'>" +
+		 * vMsg[key].required + nextLine + "</li>";
+		 * 
+		 * messages.push(msg); }
+		 *  }
+		 */
+		var result = messages.length == 0 ? true : false;
+		if (result) {
+			if (this.config.success) {
+				this.config.success();
+				if (this.autoSubmit)
+					this.formObject.submit();
+			}
+		} else {
+			if (this.config.failure) {
+				if (this.errorPanel)
+					this.errorPanel.innerHTML = messages.join(" ");
+				this.config.failure(messages);
+				// alert(errorNames.length);
+				(function() {
+					for (var idx in errorNames) {
+                        var name = errorNames[idx];
+						var es = document.getElementsByName(name);
+						var e;
+						if(es)e = es[0];
+						e.className=e.className+" validate-error";
+                        //alert(e.className);
+					}
+					for(idx in restNames){
+						name = restNames[idx];
+						es = document.getElementsByName(name);
+						if(es)e = es[0];
+						var cnames = e.className.split(/\s*/i);
+						for(var i in cnames){
+							if(cnames[i]=='validate-error'){
+								cnames.splice(i, 1);
+							}
+						}
+						e.className = cnames.join(" ");
+					}
+				})();
 
 			}
-			if (hasIt == false) {
-				var msg = "<li class='error-message'>" + "字段:" + key + "必须输入"
-						+ nextLine + "</li>";
-				if (vMsg[key])
-					msg = "<li class='error-message'>" + vMsg[key].required
-							+ nextLine + "</li>";
-				messages.push(msg);
-			}
-
 		}
-		if (debug)
-			messages.push(dbg);
-		
-		return messages.length==0?true:messages;
 
 	},// end of main validation
 	/**
 	 * @author 汉图
 	 * @throws TypeError
-	 * @param formData 表单数组
-	 * @param fieldName 要获取的name属性
+	 * @param formData
+	 *            表单数组
+	 * @param fieldName
+	 *            要获取的name属性
 	 * @return 返回null或者表单元素对象
 	 */
 	findFieldData : function(formData, fieldName) {
@@ -177,33 +211,36 @@ FormValidator.prototype = {
 		else
 			return false;
 	},
-	
-	serialize:function(){
+
+	serialize : function() {
 		var form = this.formObject;
 		var parts = new Array();
 		var field = null;
-		for(var i=0,len=form.elements.length;i<len;i++){
+		for ( var i = 0, len = form.elements.length; i < len; i++) {
 			field = form.elements[i];
-			//如果此表单元素具有禁用属性,那么直接跳过
-			if(field.disabled)continue;
-			switch(field.type){
+			// 如果此表单元素具有禁用属性,那么直接跳过
+			if (field.disabled)
+				continue;
+			switch (field.type) {
 			case "select-one":
 			case "select-multiple":
-				for(var j=0,optLen=field.options.length;j<optLen;j++){
+				for ( var j = 0, optLen = field.options.length; j < optLen; j++) {
 					var option = field.options[j];
-					if(option.selected){
+					if (option.selected) {
 						var optValue = '';
-						if(option.hasAttribute){
-							optValue = option.hasAttribute("value")?option.value:option.text;
-						}else{
-							optValue = option.attributes["value"].specified?option.value:option.text;
+						if (option.hasAttribute) {
+							optValue = option.hasAttribute("value") ? option.value
+									: option.text;
+						} else {
+							optValue = option.attributes["value"].specified ? option.value
+									: option.text;
 						}
-						var eleObj={};
-						eleObj.name  = encodeURIComponent(field.name);
+						var eleObj = {};
+						eleObj.name = encodeURIComponent(field.name);
 						eleObj.value = encodeURIComponent(optValue);
 						parts.push(eleObj);
 					}
-				}//end of for loop
+				}// end of for loop
 				break;
 			case undefined:
 			case "file":
@@ -213,12 +250,12 @@ FormValidator.prototype = {
 				break;
 			case "radio":
 			case "checkbox":
-				if(!field.checked){
+				if (!field.checked) {
 					break;
 				}
-				default:
-			    var eleObj={};
-				eleObj.name  = encodeURIComponent(field.name);
+			default:
+				var eleObj = {};
+				eleObj.name = encodeURIComponent(field.name);
 				eleObj.value = encodeURIComponent(field.value);
 				parts.push(eleObj);
 			}

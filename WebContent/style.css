@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-.error-border{
+.validate-error{
 	border:1px red solid;
     background-color:#fc3;
 }
