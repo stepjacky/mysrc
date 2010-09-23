@@ -1,25 +1,36 @@
 $(function() {
-	$("form").submit(function() {
+
+	$("#sbtn").click(function() {
 		try {
-			var vad = new FormValidator({
-				"form" : "form",
-				"rule" : ruls,
-				"message" : megs,
+			$("form").formProceed( {
+				"rules" : ruls,
+				"messages" : megs,
 				"errorContainor" : "errorPanel",
-				"autoSubmit":true,
+				"autoSubmit" : true,
+				"url" : "test.php",
+				"type" : "post",
 				"success" : function() {
 					alert("验证通过");
 				},
 				"failure" : function() {
 					alert("表单验证失败");
+				},
+				"beforeSubimt" : function() {
+					alert("准备发送");
+				},
+				"submitSuccess" : function(data) {
+					alert(data.message);
+				},
+				"submitFailure" : function(data) {
+					alert("处理错误");
 				}
 
-			}).validate();
-		} catch (e) {
-			alert(e.message);
+			});
+
+		} catch (ex) {
+			alert(ex.message);
 		}
 
-		return false;
 	});
 
 	var ruls = {
