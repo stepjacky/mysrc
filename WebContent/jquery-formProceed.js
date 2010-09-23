@@ -495,11 +495,11 @@ if (!JSON) {
 	f.fn.formProceed = function(options) {
 		//debug(this);
 		var defaults = {
-				"errorContainor" : "errorPanel",
+				"errorPanel" : "errorPanel",
 				"autoSubmit":true,
 				"type":"get"		
 	    };
-		var opts = f.extend({}, defaults, options);
+		var opts = f.extend(defaults, options);
 		$this = $(this); //present form object
 		var rules = opts.rules;
 		var vMsg = opts.messages;
@@ -509,6 +509,7 @@ if (!JSON) {
 		var restNames = [];
 		var messages = [];
 		var msg = '';
+		var errorPanel = f("#"+opts.errorPanel);
 		for ( var i = 0; i < formData.length; i++) {
 			var node = formData[i];
 			// var thisObj = $('input[name='+node.name+']');
@@ -577,22 +578,19 @@ if (!JSON) {
 		}// end of for loop
 		var result = messages.length == 0 ? true : false;
 		if (result) {
-			if (opts.success) {
-				opts.success();
+			if (opts.validateSuccess) {
+				opts.validateSuccess();
 				if (opts.autoSubmit) {
-					var af = {
-						"data" : serialize(true)
-					};
-					var ajaxCfg = f.extend({},opts,af);
-					fireAjax(ajaxCfg);
+					opts.data = serialize(true);
+					fireAjax(opts);
 				}
 
 			}
 		} else {
-			if (opts.failure) {
-				if (opts.errorPanel)
-					opts.errorPanel.innerHTML = messages.join(" ");
-				opts.failure(messages);
+			if (opts.validateFailure) {
+				if (errorPanel)
+					errorPanel.html(messages.join(" "));
+				opts.validateFailure(messages);
 				// alert(errorNames.length);
 				(function() {
 					for ( var idx in errorNames) {
@@ -788,11 +786,8 @@ if (!JSON) {
         
 		if (!ajaxCfg)
 			throw new Error("配置参数错误 需要ajax参数");
-		if (ajaxCfg.type) {
-			if (ajaxCfg.type.toLowerCase() != 'post'
-					&& ajaxCfg.type.toLowerCase() != 'get') {
-				throw new Error("参数 type 要么是post 要么事 get ,其中之一");
-			}
+		if (!ajaxCfg.type) {
+			 ajaxCfg.type='get';
 		}
 		if (!ajaxCfg.resultType)
 			ajaxCfg.resultType = 'json';

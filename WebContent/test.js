@@ -5,17 +5,15 @@ $(function() {
 			$("form").formProceed( {
 				"rules" : ruls,
 				"messages" : megs,
-				"errorContainor" : "errorPanel",
-				"autoSubmit" : true,
 				"url" : "test.php",
 				"type" : "post",
-				"success" : function() {
+				"validateSuccess" : function() {
 					alert("验证通过");
 				},
-				"failure" : function() {
+				"validateFailure" : function() {
 					alert("表单验证失败");
 				},
-				"beforeSubimt" : function() {
+				"beforeSubmit" : function() {
 					alert("准备发送");
 				},
 				"submitSuccess" : function(data) {
@@ -26,11 +24,13 @@ $(function() {
 				}
 
 			});
+			
+			
 
 		} catch (ex) {
 			alert(ex.message);
 		}
-
+         return false;
 	});
 
 	var ruls = {
