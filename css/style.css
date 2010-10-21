@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+body  {color: #333;font:12px Arial, Helvetica, sans-serif;margin:0;padding:0;text-align: center; margin:0 auto}
+p{margin:0px; padding:0}
+form,img  {border:0;margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,ul,dl,dt,dd {margin:0;padding:0; font-style:normal; font-weight:normal}
+ul,dl{list-style:none;}
+input,select{vertical-align:middle;} 
+i,em{ font-style:normal}
+
+/*---- 公用----*/
+div{text-align:left}
+.clear {clear:both; }
+.txtcenter{text-align:center}
+.left {float:left;}
+.right {float:right;}
+.hidehr {display:none;}
+.blank9{ height:9px; clear:both; font-size:0; line-height:0;}
+.blank15{ height:15px; clear:both; font-size:0; line-height:0;}
+.blank5{ height:5px; clear:both; font-size:0; line-height:0;}
+.w217{ width:217px}
+.w440{ width:440px; }
+.w218{ width:217px}
+.ww240{ width:240px; }
+.ww400{width:430px;}
+.ww400 .xptj{background:none;}
+.bold{ font-weight:bold}
+.cpzl{}
+/*-- 字体 --*/
+a {color: #333333;text-decoration:none;}
+a:hover {color: #006666;text-decoration:none;}
+.orange { color:#ff6600;}
+.orange a{ color:#ff6600; text-decoration:none}
+.orange a:hover{ color:#ff0000; text-decoration:underline}
+.red { color:#ff0000;}
+.red a{ color:#ff0000; text-decoration:none}
+.red a:hover{ color:#ab0000; text-decoration:underline}
+.white{ color:#fff}
+.white a{ color:#fff; text-decoration:none}
+.white a:hover{ color:#fff; text-decoration:none}
+.blue{ color:#0066cc}
+.fontWhite{ color:#fff}
+a.fontWhite:link{ color:#fff; text-decoration:none}
+a.fontWhite:visited{ color:#fff; text-decoration:none}
+a.fontWhite:hover{ color:#fff; text-decoration:underline}
+.f12{ font-size:12px;}
+.f14{ font-size:14px;}
+.fht{ font-size:18px; font-family: "黑体"; color:#ff6600;}
+.fht2{ font-size:16px; font-family: "黑体";}
+.f666{ color:#666}
+.lh20{ line-height:20px}
+.lh22{ line-height:22px}
+.p8{ padding:8px}
+.lh160{ line-height:160%;}
+.lh180{ line-height:180%}
+.ind2{ text-indent:2em;}
+.gsjj{margin:10px 20px 10px 0px;}
+
+/*-- index --*/
+.main{ width:780px; margin:0 auto}
+.logo{ height:108px; line-height:108px}
+.logo .link{ width:340px; float:left; padding:30px 0 0 20px}
+.logo .search{ width:260px; float:right; padding:0px 0 0 20px;_padding:40px 0 0 20px;height:30px;}
+.btn1{ background:url(../pic/btn01.jpg) no-repeat; width:57px; height:22px; text-align:center; font-size:12px; color:#fff; border:0; cursor:pointer}
+.inpbg1{ background:url(../pic/inpbg1.jpg) no-repeat; padding:0 2px; width:171px; height:22px; line-height:22px; overflow:hidden; border:0; color:#666; font-size:12px}
+#menu{ background:url(../pic/menuBg.jpg) no-repeat; height:114px}
+#menu ul{ width:680px; margin:0 auto}
+#menu li{ width:136px; float:left; color:#003333; text-align:center; padding-top:18px; font-size:18px; font-family: "黑体";height:95px}
+#menu li a{ display:block; height:95px}
+#menu li a:hover,#menu li.active{color:#fff;}
+
+.content{ background:url(../pic/conBg.jpg) repeat-x bottom; padding:25px 55px}
+#bottom{ background:url(../pic/botBg.jpg) repeat-x; height:49px; padding:15px 0 0 30px}
+.tit1{ margin:0px 20px 10px 0px;}
+.tit1 dt{ font-size:18px; font-family:"黑体"; color:#ff6600;}
+.tit1 dd{ font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#666666;}
+.prb8{ padding:0 8px 8px 0}
+.news1{ margin-bottom:10px}
+.news1 dt{ width:50px; float:left}
+.news1 dd{ width:382px; float:right; line-height:18px; border-bottom:1px solid #a0afb3}
+
+.cpzs{ background:url(../pic/cpzs2.jpg) no-repeat bottom;width:217px}
+.cpzs .con{ padding:0 10px 15px 10px}
+.cpzs h3{ background:url(../pic/cpzs1.jpg) right;height:49px;width:217px; padding:0; margin:0}
+
+.tsjy{ background:url(../pic/yqjy2.jpg) no-repeat bottom}
+.tsjy .con{ padding:0px 15px 15px 15px}
+.tsjy h3{ background:url(../pic/yqjy1.jpg); height:47px}
+
+.xptj{ background:url(../pic/xptj2.jpg) no-repeat bottom}
+.xptj .con{ padding:0px 15px 15px 15px}
+.xptj h3{ background:url(../pic/xptj1.jpg); height:20px; padding-top:18px;font-size:18px; font-family:"黑体"; color:#e1ffbe; text-indent:16px}
+
+.fonqs{ color:#e1ffbe}
+.fonqs a{ color:#e1ffbe; text-decoration:none}
+.fonqs a:hover{ color:#e1ffbe; text-decoration:underline}
+
+.list1{}
+.list1 li{ background:url(../pic/list1.gif) no-repeat left center; text-indent:25px; line-height:20px}
+
+.lxline{ background:url(../pic/list2.gif) repeat-y center; width:20px}
+.lybox{ background:url(../pic/lyBg.jpg) no-repeat; width:533px; height:254px;margin:0px auto}
+.lybox .con{ padding:35px 10px 10px 10px}
+.phone{background:url(../pic/phone.jpg) no-repeat; height:17px; line-height:17px; text-indent:25px;color:#356991}
+.nweList{ font-size:14px;width:700px;}
+.nweList li{ line-height:30px; font-family:"宋体"}
+.nweList li span{ float:right; color:#999999; padding-right:5px}
