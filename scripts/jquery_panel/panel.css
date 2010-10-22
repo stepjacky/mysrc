@@ -1,0 +1,282 @@
+@charset "utf-8";
+
+/*------------------------------------*/
+#exhibition {
+	width: 800px;
+	margin: 20px auto
+}
+
+#exhibition .mg10 {
+	margin: 10px
+}
+
+.exhibiton {
+	
+}
+
+.exHead,.exHead .hLeft,.exHead .hRight {
+	background: url(img/h.gif) no-repeat
+}
+
+.exFoot,.exFoot .fLeft,.exFoot .fRight {
+	background: url(img/f.gif) no-repeat
+}
+
+.exHead {
+	height: 40px;
+	width: 100%
+}
+
+.hTxt {
+	float: left;
+	height: 40px;
+	width: 100%
+}
+
+.hTxtContent {
+	margin: 0 10px
+}
+
+.hTxtContent h2 {
+	font-size: 14px;
+	line-height: 40px
+}
+
+.hLeft,.hRight {
+	width: 10px;
+	height: 40px;
+	float: left;
+	overflow: hidden
+}
+
+.hLeft {
+	margin-left: -100%
+}
+
+.hRight {
+	margin-left: -10px
+}
+
+.exFoot {
+	height: 10px;
+	width: 100%
+}
+
+.fLeft,.fRight {
+	height: 10px;
+	width: 10px;
+	overflow: hidden
+}
+
+.fLeft {
+	float: left
+}
+
+.fRight {
+	float: right
+}
+
+.exBody {
+	min-height: 50px;
+	_height: 50px
+}
+
+.exBody .content {
+	line-height: 1.5;
+	font-size: 12px;
+	padding: 10px
+}
+
+.ex01 .exHead {
+	background-position: 0 -520px;
+	background-repeat: repeat-x
+}
+
+.ex01 .hLeft {
+	background-position: 0 -480px;
+}
+
+.ex01 .hRight {
+	background-position: 0 -560px;
+}
+
+.ex01 .exFoot {
+	background-position: 0 -130px;
+	background-repeat: repeat-x
+}
+
+.ex01 .fLeft {
+	background-position: 0 -120px;
+}
+
+.ex01 .fRight {
+	background-position: 0 -140px;
+}
+
+.ex01 .exBody {
+	border: 3px solid #FFD52F;
+	border-top: none;
+	border-bottom: none
+}
+
+.ex02 .exHead {
+	background-position: 0 -280px;
+	background-repeat: repeat-x
+}
+
+.ex02 .hLeft {
+	background-position: 0 -240px;
+}
+
+.ex02 .hRight {
+	background-position: 0 -320px;
+}
+
+.ex02 .exFoot {
+	background-position: 0 -40px;
+	background-repeat: repeat-x
+}
+
+.ex02 .fLeft {
+	background-position: 0 -30px;
+}
+
+.ex02 .fRight {
+	background-position: 0 -50px;
+}
+
+.ex02 .exBody {
+	border: 1px solid #DADADA;
+	background: #F7F7F8;
+	border-top: none;
+	border-bottom: none
+}
+
+.ex03 .exHead {
+	background-position: 0 -400px;
+	background-repeat: repeat-x
+}
+
+.ex03 .hLeft {
+	background-position: 0 -360px;
+}
+
+.ex03 .hRight {
+	background-position: 0 -440px;
+}
+
+.ex03 .exFoot {
+	background-position: 0 -70px;
+	background-repeat: repeat-x
+}
+
+.ex03 .fLeft {
+	background-position: 0 -60px;
+}
+
+.ex03 .fRight {
+	background-position: 0 -80px;
+}
+
+.ex03 .exBody {
+	border: 1px solid #DADADA;
+	border-top: none;
+	border-bottom: none
+}
+
+.ex04 .exHead {
+	background-position: 0 -640px;
+	background-repeat: repeat-x
+}
+
+.ex04 .hLeft {
+	background-position: 0 -600px;
+}
+
+.ex04 .hRight {
+	background-position: 0 -680px;
+}
+
+.ex04 .exFoot {
+	background-position: 0 -160px;
+	background-repeat: repeat-x
+}
+
+.ex04 .fLeft {
+	background-position: 0 -150px;
+}
+
+.ex04 .fRight {
+	background-position: 0 -170px;
+}
+
+.ex04 .exBody {
+	border: 2px solid #CCCCFF;
+	border-top: none;
+	border-bottom: none
+}
+
+.ex05 .exHead {
+	background-position: 0 -160px;
+	background-repeat: repeat-x
+}
+
+.ex05 .hLeft {
+	background-position: 0 -120px;
+}
+
+.ex05 .hRight {
+	background-position: 0 -200px;
+}
+
+.ex05 .exFoot {
+	background-position: 0 -100px;
+	background-repeat: repeat-x
+}
+
+.ex05 .fLeft {
+	background-position: 0 -90px;
+}
+
+.ex05 .fRight {
+	background-position: 0 -110px;
+}
+
+.ex05 .exBody {
+	border: 1px solid #DADADA;
+	background: #FFFFF0;
+	border-top: none;
+	border-bottom: none
+}
+
+.ex06 .exHead {
+	background-position: 0 -40px;
+	background-repeat: repeat-x
+}
+
+.ex06 .hLeft {
+	background-position: 0 0px;
+}
+
+.ex06 .hRight {
+	background-position: 0 -80px;
+}
+
+.ex06 .exFoot {
+	background-position: 0 -10px;
+	background-repeat: repeat-x
+}
+
+.ex06 .fLeft {
+	background-position: 0 0px;
+}
+
+.ex06 .fRight {
+	background-position: 0 -20px;
+}
+
+.ex06 .exBody {
+	border: 3px solid #CCCCFF;
+	border-top: none;
+	border-bottom: none
+}

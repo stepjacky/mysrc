@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* The CSS Code for the menu starts here */
+#menu {
+				font-family: Arial, sans-serif;
+				font-weight: bold;
+				text-transform: uppercase;
+				margin: 0 0;
+				padding: 0;
+				list-style-type: none;
+				background-color: #eee;
+				font-size: 13px;
+				height: 20px;
+				border-top: 2px solid #eee;
+				border-bottom: 2px solid #ccc;
+				width:100%;
+				margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top:0px;
+			}
+			#menu li {
+				float: left;
+				margin: 0;				
+			}
+			#menu li a {
+				text-decoration: none;
+				display: block;
+				padding: 0 20px;
+				line-height: 18px;
+				color: #666;
+			}
+			#menu li a:hover, #menu li.active a {
+				background-color: #f5f5f5;
+				border-bottom: 2px solid #DDD;
+				color: #999;
+			}
+			#menu_wrapper ul {
+			    margin-top:0px;
+			    margin-left: auto;
+	margin-right: auto;
+	position: relative;
+			}
+			#menu_wrapper {padding: 0 16px 0 0; 
+			background: url(images/menu/grey.png) no-repeat right;
+			margin-left: auto;
+	margin-right: auto;
+	position: relative;
+			}
+			#menu_wrapper div {float: left; 
+			margin-left: auto;
+	margin-right: auto;
+	position: relative;
+			height: 44px; 
+			width: 12px; 
+			background: url(images/menu/grey.png) no-repeat left;}
+			
+			/* Black Menu */
+			#menu_wrapper.black ul {
+			 margin-top:0px;
+			    margin-left: auto;
+	margin-right: auto;
+				border-top: 2px solid #333;
+				border-bottom: 2px solid #000;
+				background: #333;
+				height:18px;
+				}
+			#menu_wrapper.black a {color: #CCC;}
+			#menu_wrapper.black li a:hover, #menu_wrapper.black li.active a {color: #999; background: #555; border-bottom: 2px solid #444;}
+			#menu_wrapper.black {
+			margin-left: auto;
+	margin-right: auto;
+	position: relative;
+			background: url(images/menu/black.png) no-repeat right;}
+			#menu_wrapper.black div {background: url(images/menu/black.png) no-repeat left;margin-left: auto;
+	margin-right: auto;
+	position: relative;}
+			
+			/* Blue Menu */
+			#menu_wrapper.blue ul {
+				border-top: 2px solid #356AA0;
+				border-bottom: 2px solid #204061;
+				background: #356AA0;}
+			#menu_wrapper.blue a {color: #fff;}
+			#menu_wrapper.blue li a:hover, #menu_wrapper.blue li.active a {color: #90CDFF; background: #3D7BBB; border-bottom: 2px solid #356AA0;}
+			#menu_wrapper.blue {background: url(images/menu/blue.png) no-repeat right;}
+			#menu_wrapper.blue div {background: url(images/menu/blue.png) no-repeat left;}
+			
+			/* Red Menu */
+			#menu_wrapper.red ul {
+				border-top: 2px solid #660000;
+				border-bottom: 2px solid #450000;
+				background: #660000;}
+			#menu_wrapper.red a {color: #fff;}
+			#menu_wrapper.red li a:hover, #menu_wrapper.red li.active a {color: #F27F84; background: #990000; border-bottom: 2px solid #660000;}
+			#menu_wrapper.red {background: url(images/menu/red.png) no-repeat right;}
+			#menu_wrapper.red div {background: url(images/menu/red.png) no-repeat left;}
+			
+			/* Orange Menu */
+			#menu_wrapper.orange ul {
+				border-top: 2px solid #d15600;
+				border-bottom: 2px solid #B44500;
+				background: #d15600;}
+			#menu_wrapper.orange a {color: #fff;}
+			#menu_wrapper.orange li a:hover, #menu_wrapper.orange li.active a {color: #FA9B5B; background: #B44500; border-bottom: 2px solid #d15600;}
+			#menu_wrapper.orange {background: url(images/menu/orange.png) no-repeat right;}
+			#menu_wrapper.orange div {background: url(images/menu/orange.png) no-repeat left;}
