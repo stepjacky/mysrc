@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>上海良宇</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -21,21 +22,19 @@
                         </dl>
                         <p><img src="pic/ban7.jpg"   /></p>
                      
-                      <div class="blank9"></div>
+                   
 					  <ul class="nweList">
 					  		<li class="orange">上海宇良国际贸易有限公司</li>
-							<li>地址：上海市闵行区闵北路88弄1-17号、18-30号第25幢</li>
-							<li>邮编：201107</li>
-							<li>电话：+1 800 559 6580</li>
-							<li>传真：+1 101 889 9898</li>
-							<li>E-mail: <a href="#"><i class="orange">aaaaa@bbbbbbbb.com</i></a></li>
+							<li>地址:上海市闵行区闵北路88弄1-17号、18-30号第25幢</li>
+							<li>邮编:201107</li>
+							<li>电话:021-59243911</li>							
+							<li>E-mail:<i class="orange">chuck_lau AT bestolp.com</i></li>
 					  </ul>
                        </td>
                   </tr>
                 </table>
 
-				
-				<div class="blank15"></div>
+			
 
 	</div>
 	<div class="clear"></div>

@@ -69,7 +69,7 @@ a.fontWhite:hover{ color:#fff; text-decoration:underline}
 #menu li a{ display:block; height:95px}
 #menu li a:hover,#menu li.active{color:#fff;}
 
-.content{ background:url(../pic/conBg.jpg) repeat-x bottom; padding:25px 55px}
+.content{ background:url(../pic/conBg.jpg) repeat-x bottom; padding:15px 30px}
 #bottom{ background:url(../pic/botBg.jpg) repeat-x; height:49px; padding:15px 0 0 30px}
 .tit1{ margin:0px 20px 10px 0px;}
 .tit1 dt{ font-size:18px; font-family:"黑体"; color:#ff6600;}
@@ -99,9 +99,10 @@ a.fontWhite:hover{ color:#fff; text-decoration:underline}
 .list1 li{ background:url(../pic/list1.gif) no-repeat left center; text-indent:25px; line-height:20px}
 
 .lxline{ background:url(../pic/list2.gif) repeat-y center; width:20px}
-.lybox{ background:url(../pic/lyBg.jpg) no-repeat; width:533px; height:254px;margin:0px auto}
+.lybox{ background:url(../pic/lyBg.jpg) no-repeat; width:533px; height:254px;margin:0px auto 0px;}
 .lybox .con{ padding:35px 10px 10px 10px}
 .phone{background:url(../pic/phone.jpg) no-repeat; height:17px; line-height:17px; text-indent:25px;color:#356991}
 .nweList{ font-size:14px;width:700px;}
 .nweList li{ line-height:30px; font-family:"宋体"}
 .nweList li span{ float:right; color:#999999; padding-right:5px}
+

@@ -15,21 +15,20 @@ $entryName = getEntryName($fileName);
 	  	postData:{"action":"list"},
         mtype:"POST",
 	  	height: 250,
-	     	colNames:['编号','IP','留言日期','内容','用户','修改','删除'],
+	     	colNames:['编号','用户','内容','留言日期','IP','删除'],
 	     	colModel:[
 	     		{name:'id',index:'id', width:50},
-	     		{name:'ip',index:'ip', width:150},
-                {name:'leavedate',index:'leavedate', width:150},
+                {name:'user',index:'user', width:150},
                 {name:'content',index:'content', width:150,formatter:imageFormatter},
-                {name:'user',index:'user', width:150,formatter:introFormatter},
-	     		{name:'id',index:'id', width:50,formatter:mofidyFormatter},
+                {name:'leavedate',index:'leavedate', width:150},
+                {name:'ip',index:'ip', width:100},
 	     		{name:'id',index:'id', width:50,formatter:deleteFormatter},
                 
 	     		
 	     	],
          
 	     	multiselect: true,
-	     	caption: "评论列表",
+	     	caption: "客户留言列表",
 	     	rowNum:10,
 	       	rowList:[10,20,30],
 	       	pager: '#pager2',
@@ -40,9 +39,9 @@ $entryName = getEntryName($fileName);
 	           repeatitems: false,
 	           id: "0"
 	        },
-	        grouping: true, 
+	        grouping: false, 
             groupingView : { 
-                groupField : ['leavedate'], 
+                groupField : ['date(leavedate)'], 
                 groupColumnShow : [true], 
                 groupText : ['<b>{0}</b>'], 
                 groupCollapse : false, 
@@ -54,14 +53,6 @@ $entryName = getEntryName($fileName);
             userDataOnFooter: true
 		
    });// end of jQGrid initilize 
-	  function mofidyFormatter(cellvalue, options, rowObject){
-          var url ='../view/<?php echo $entryName.'.php';?>?action=update&id='+cellvalue;
-          var link =  jQuery('<a onclick="doUpdateMain(\''+url+'\',\'修改公告\');"></a>');
-          link.attr('href','javascript:;');
-          link.text('修改');
-          return jQuery('<p></p>').append(link).html();
-            
-      }
 	  function deleteFormatter(cellvalue, options, rowObject){
 		         
 		  var link =  jQuery('<a onclick="doDeleteRecord('+cellvalue+');"></a>');
@@ -72,15 +63,13 @@ $entryName = getEntryName($fileName);
 
       function imageFormatter(cellvalue, options, rowObject){
 		         
-		  var link =jQuery('<img src="'+cellvalue+'" style="height:100px;width:150px" ></img>');
-          return jQuery('<p></p>').append(link).html();
-	  }
+    	 // var link =jQuery('<textarea style="height:100px;width:150px">'+cellvalue+'</textarea>');
+          //return jQuery('<p></p>').append(link).html();
+         return cellvalue;
+
+      }
 	  
-      function introFormatter(cellvalue, options, rowObject){
-		         
-		  var link =jQuery('<textarea style="height:100px;width:150px">'+cellvalue+'</textarea>');
-          return jQuery('<p></p>').append(link).html();
-	  }
+     
 
 	  
 
