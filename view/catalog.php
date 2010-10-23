@@ -25,7 +25,7 @@ if(isset($_GET['action'])){
 
 $sql = "select * from $entryName where id=$id";
 $entitylist = queryForEntities($sql);
-$entity = $entitylist==null?:$entitylist[0];
+$entity = $entitylist==null?NULL:$entitylist[0];
 
 $name = getProperty($entity, "name");
 $intro = getProperty($entity, "intro");

@@ -1,14 +1,12 @@
 <?php
 use utils\Response;
 require_once '../../../tools/utils.php';
-require_once '../../../tools/jsonutil.php';
-use utils\Utils;
-$imgBase = "/cs78/scripts/jquery_upload_crop/upload_pic/";
-$dir = $_SERVER['DOCUMENT_ROOT']."/cs78/scripts/jquery_upload_crop/upload_pic";
 
-$util= new Utils();
+$imgBase = "/liangyu/scripts/jquery_upload_crop/upload_pic/";
+$dir = $_SERVER['DOCUMENT_ROOT']."/liangyu/scripts/jquery_upload_crop/upload_pic";
+
 //$util->logInfo("文件目录绝对路径是 : ".$dir);
-$files = $util->listFiles($dir,"php");
+$files = listFiles($dir,"php");
 //$util->logInfo($files);
 ?>
 
@@ -17,9 +15,9 @@ function showImages(imgsrc){
 	   selectImage = imgsrc;
        //alert(selectImage);
 	   MUI.updateContent({
-		    element: $('imageShowWindow_panel1'),                    
+		    element: $('imageSelectWindow_panel1'),                    
 		    url: '../scripts/jquery_upload_crop/upload_pic/shopperimage.php?imgsrc='+imgsrc,
-		    title: '店家图片',
+		    title: '产品图片',
 		    padding: { top: 8, right: 8, bottom: 8, left: 8 }
 		});
 }

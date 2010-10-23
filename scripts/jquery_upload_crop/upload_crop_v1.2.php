@@ -289,7 +289,7 @@ if ($_GET['a']=="delete" && strlen($_GET['t'])>0){
 if(strlen($large_photo_exists)>0){
     $current_large_image_width = getWidth($large_image_location);
     $current_large_image_height = getHeight($large_image_location);
-$imgBase = "/cs78/scripts/jquery_upload_crop/";    
+$imgBase = "/liangyu/scripts/jquery_upload_crop/";    
 ?>
 <script type="text/javascript">
 function preview(img, selection) { 

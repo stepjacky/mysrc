@@ -25,7 +25,7 @@ if(isset($_GET['action'])){
 
 $sql = "select * from news where id=$id";
 $entitylist = queryForEntities($sql);
-$entity = $entitylist==null?:$entitylist[0];
+$entity = $entitylist==null?NULL:$entitylist[0];
 
 
 $entities = get_html_translation_table(HTML_ENTITIES);

@@ -1,3 +1,16 @@
+<?php 
+require_once 'tools/utils.php';
+if(!isset($_GET['id'])){
+	echo "非法请求";
+	exit(0);
+}
+$id = $_GET['id'];
+$sql = "select * from news where id=$id";
+$entitylist = queryForEntities($sql);
+$entity = $entitylist==null?NULL:$entitylist[0];
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,24 +28,22 @@
 				
 				
 				<dl class="tit1">
-					<a href="gsxw.html">公司新闻</a>>>当前新闻标题
+					<a href="gsxw.html">公司新闻</a>><?php echo $entity['title'];?>
 					<dd></dd>
 				</dl>
 				
 				<div class="news_detail">
-				   <h2 class="textcenter">新闻标题，新闻标题！</h2>
-				   <div class=" textcenter fontnormal fontcolorGray pubdate">更新时间：2010-10-26</div>
+				   <h2 class="textcenter"><?php echo $entity['title'];?></h2>
+				   <div class=" textcenter fontnormal fontcolorGray pubdate">发布时间：<?php echo $entity['publishdate'];?></div>
 				   <hr>
+				   <?php 
+				       $ess = get_html_translation_table(HTML_ENTITIES);
+                       $trans = array_flip($ess);
+                       $cn=  strtr($entity['content'], $trans);
 				   
-				   &nbsp; &nbsp; &nbsp; &nbsp;新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   <br />&nbsp; &nbsp; &nbsp; &nbsp;新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   <br />&nbsp; &nbsp; &nbsp; &nbsp;新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   <br />&nbsp; &nbsp; &nbsp; &nbsp;新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
-				   新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文新闻正文
+				       echo $cn;
 				   
+				   ?>
 				   
 				   </div>
 				</div>
