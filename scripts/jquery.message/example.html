@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+jQuery message 的例子
+<script type="text/javascript">
+$(function() {
+    Message.init();
+    
+    Message.add('This message is just plain.', 'Message', 'sticky');
+    Message.add('There was a problem doing something.', 'Error', 'error sticky');
+    Message.add('Something just happened, thought I\'d let you know.', 'Information', 'information sticky');
+    Message.add('This might be a problem, it\'s not fatal though.', 'Warning', 'warning sticky');
+    Message.add('This is a non-sticky plain message.', 'Message');
+    Message.add('This is only shown briefly.', 'Message', 200);
+    Message.add('When this is closed, a callback is executed.', 'Message', {
+      style: 'information',
+      callback: function() {
+        Message.add('You closed the message!', 'Warning', 'warning');
+      }
+    });
+  });
+
+</script>
+</body>
+</html>
