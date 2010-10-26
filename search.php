@@ -276,6 +276,14 @@
         
         $smarty->assign("cookstyles",$cookstyles);
         
+        //2 本周推荐商家
+        
+        $dao->setEntityName("shopper");
+        
+   		$weekShoppers  = $dao->getBeansWithCondition("weekshoppers=true order by id desc limit 0,15 ");
+   		
+   
+   		$smarty->set("weekshoppers",  $weekShoppers);
         
         
         $smarty->display("msSearch.tpl");        

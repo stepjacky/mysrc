@@ -256,12 +256,12 @@ initializeColumns = function() {
 		resizeLimit: [100, 300]
 	});
 	
-	new MUI.Column({
+	/*new MUI.Column({
 		id: 'sideColumn2',
 		placement: 'right',
 		width: 220,
 		resizeLimit: [200, 300]
-	});
+	});*/
 	
 	// 左边第一个树菜单面板
 	new MUI.Panel({
@@ -571,6 +571,7 @@ initializeColumns = function() {
 		}		
 	});
 	
+	/*
 	new MUI.Panel({
 		id: 'panel3',
 		title: '属性面板',
@@ -588,7 +589,7 @@ initializeColumns = function() {
 		footer: true
 	});
 	
-	
+	*/
 	
 	MUI.myChain.callChain();
 };

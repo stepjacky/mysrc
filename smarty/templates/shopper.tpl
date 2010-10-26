@@ -10,8 +10,13 @@
 <script type="text/javascript" src="scripts/jquery/jquery-1.4.2.js"></script>
 <link href="scripts/jgrowl/jquery.jgrowl.css" rel="stylesheet"
     type="text/css" />
+
+<link type="text/css" href="scripts/jquery.marquee//css/jquery.marquee.css" rel="stylesheet" title="default" media="all" />
 <script type="text/javascript" src="scripts/jgrowl/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="scripts/jquery.marquee/lib/jquery.marquee.js"></script>
+
 <script type="text/javascript" src="scripts/myutils.js"></script>
+
 
 <script type="text/javascript">
 //jQuery.noConflict();
@@ -239,6 +244,9 @@ $(function(){
 	   }
        inilizePos();
        
+       $("#marquee").marquee();
+      
+       
 });//end of document ready event process function 
 </script>
 
@@ -262,8 +270,18 @@ $(function(){
 <div class="sjInfo">
 <div class="sjname">{$shopper['name']|default:'未指定名称'}</div>
 <div class="sjxj">人气：{$shopper['moods']} 网络星级：
-{php} $random = rand(3,6); for($i=0;$i<$random;$i++){ echo " <img
-    src='styles/pic/sjym/list04.gif' align='absmiddle' /> " ; } {/php}</div>
+{php} 
+$random = rand(3,6); for($i=0;$i<$random;$i++){ echo " <img
+    src='styles/pic/sjym/list04.gif' align='absmiddle' /> " ; } {/php}
+</div>
+<div class="dazhe">
+ <ul id="marquee" class="marquee">
+   <li>
+     {$shopper['discount']|default:"该商家没有打折信息"}
+   </li>  
+ </ul>
+ 
+</div>
 <ul class="sjlj">
     <li><a href="javascript:addFavorite(document.location.href,'{$shopper['name']}');">收藏本店</a></li>
     

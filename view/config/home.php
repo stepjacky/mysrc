@@ -16,7 +16,7 @@
 
       }).button();
       $("#uploadpic").click(function(){
-    	  window.open('../view/config/jquery_upload_crop/upload_crop_v1.2.php','avatar');
+    	  window.open('../view/config/jquery_upload_crop/upload_pic/upload.php','avatar');
           return false;
 
           }).button();
@@ -102,7 +102,33 @@
                 return false;
 
              }); 
-            
+             $("#unlinkImg").click(function(){
+                  if(confirm("您真的要删除该图吗~!")){
+                      if(!selectImage){
+                          notify("请先选择图片!");
+                          return false;
+                      }
+                	  var req = new Request.JSON({
+                          "url":"../model/config/home.php",
+                          "onSuccess":function(jsonData){
+                               alert(jsonData.message);
+                          },
+                          "onFailure":function(xhr){
+                               alert(xhr.responseText); 
+                          }
+                      });
+                      fimg={};
+                      fimg.action = "deleteImage";
+                      fimg.image = selectImage;
+                      req.post(fimg);     
+
+                  }else{
+                     return false;
+ 
+                  }
+                    
+
+              }).button();
                 
 
                 

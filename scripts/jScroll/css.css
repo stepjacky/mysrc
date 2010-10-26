@@ -1,0 +1,24 @@
+body { margin:30px; font:normal 12px "宋体"; color:#333; }
+
+a { color:#333; text-decoration:none; }
+a:hover { color:#0B55C4; text-decoration:underline; }
+a:visited { text-decoration:none; }
+a:active { text-decoration:none; }
+
+ul, li, h2, h3 { margin:0; padding:0; }
+h1, h2 { text-align:center; line-height:140%; }
+li { list-style-type:none; }
+img { border:0; }
+.split { clear:both; height:30px; overflow:hidden; }
+p { font-size:14px; line-height:200%; text-align:center; }
+
+.box { margin:10px auto 0; border:1px solid #ccc; }
+.box li { line-height:24px; padding:0 10px 0 20px; background:url(images/point.gif) 10px 10px no-repeat;  }
+
+
+.scroll_one { width:300px; height:100px; }
+.scroll_two { width:258px; height:150px; }
+.scroll_three { width:438px; height:123px; }
+.scroll_three li { border:5px solid #fff; padding:0; line-height:100%; background:none; }
+.scroll_three li a { padding:2px; border:1px solid #d7d7d7; display:inline-block; }
+.scroll_three li a:hover { border:1px solid #0B55C4; }

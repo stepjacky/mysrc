@@ -37,7 +37,7 @@
                 <span><a href="#">打印</a></span>
                 <span><a href="#">转发</a></span>
                 <span><a href="#">收藏</a></span>
-                <span class="red"><a href="#">提供资讯</a></span>
+                转载自: <span class="red"><a href="{$artitle['from_link']}" target="_blank">{$artitle['from_title']}</a></span>
             </div>
             <div class="clear"></div>
         </div>

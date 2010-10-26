@@ -3,11 +3,11 @@ use utils\Response;
 require_once '../../../../tools/utils.php';
 require_once '../../../../tools/jsonutil.php';
 use utils\Utils;
-$imgBase = "/cs78/view/config/jquery_upload_crop/upload_pic/";
-$dir = $_SERVER['DOCUMENT_ROOT'].$imgBase; 
+
 
 $util= new Utils();
-//$util->logInfo("文件目录绝对路径是 : ".$dir);
+
+$dir = $util->getHomeImageDir();
 $files = $util->listFiles($dir,"php");
 //$util->logInfo($files);
 ?>
@@ -27,7 +27,7 @@ function showImages(imgsrc){
 <ol id='imgul'>
  <?php
      for($i=0;$i<count($files);$i++){
-         $imgsrc = $imgBase.$files[$i];
+         $imgsrc = $util->homeImageBase.$files[$i];
          //$util->logInfo($imgsrc);
          
  ?>

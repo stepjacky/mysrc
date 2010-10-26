@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
 
       }).button();
       $("#uploadpic").click(function(){
-    	  window.open('../view/config/jquery_upload_crop/upload_crop_v1.2.php','avatar');
+    	  window.open('../view/config/jquery_upload_crop/upload_pic/upload.php','avatar');
           return false;
 
           }).button();

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="robots" content="all" />
+<meta name="BaiduSpider" content="all" />
+<meta name="Googlebot" content="all" />
+<meta name="revisit-after" content="1 days" />
+ 
+<title>jScroll - 循环滚动</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.jScroll.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".scroll_one li:even a, .scroll_two li:even a").css("color", "#0B55C4");
+
+	$(".scroll_one").jScroll({vertical: true});
+ 
+});
+</script>
+<link href="css.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+<p>元素总高度小于容器高度，不滚动</p>
+<div class="box scroll_one">
+  <ul>
+		<li><a href="#">声明</a>| <a href="#">农夫山泉关于公益捐赠的严正声明</a></li>
+		<li><a href="#">新车</a>| <a href="#">外观媲美轿车 全新一代奥德赛9月初亮相</a></li>
+		<li><a href="#">活动</a>| <a href="#">开启燕京啤酒清爽之旅，赢取万元单反相机</a></li>
+	</ul>
+</div>
+ 
+
+</body>
+</html>

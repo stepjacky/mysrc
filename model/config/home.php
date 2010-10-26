@@ -20,6 +20,7 @@ use data\BaseDao;
       case "delete" : doDelete();break;
       case "search" : doSearch();break;
       case "updateflash" : doUpdateFlash();break;
+      case "deleteImage" : doDeleteImage();break;
       default:
           echo 'error action code';
           exit(0);
@@ -82,12 +83,20 @@ function doUpdateAd(){
        $dao->create($_POST); 
     }
     $rst = new Result();
-    echo $rst->SUCCESS();
+    $rst->SUCCESS();
     
 }  
 
-function doDelete(){
-    
+function doDeleteImage(){
+    $util = new Utils();
+    $img = $_POST['image'];
+    $file = "D:/website/htdocs/". $img;
+   
+    if(file_exists($file)){
+    	unlink($file);
+    }
+    $rst = new Result();
+    $rst->SUCCESS("删除图片". $img ."成功!");
     
 }
 

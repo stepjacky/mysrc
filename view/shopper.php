@@ -58,7 +58,7 @@ $memberSupported = $util->getProperty($entry, "memberSupported");
 $type = $util->getProperty($entry, "type");// type id;
 $longitude =$util->getProperty($entry, "longitude");
 $lantitude =$util->getProperty($entry, "lantitude");
-
+$discount = $util->getProperty($entry,"discount");
 $SQL = "select c.id,c.name from shopper_has_cookstyle shc right join cookstyle c on shc.cookstyle_id=c.id
         where shc.shopper_id=$shopperId";
 $cookstyles = array();
@@ -165,6 +165,14 @@ $cookstyleJson = jsonEncode($cookstyles);
         <td><input name="phone" type="text" id="phone" value="<?php echo $phone;?>" /></td>
     </tr>
     <tr>
+      <td>优惠信息</td>
+      <td><span style="height: 105px;">
+        <textarea name="discount"
+            id="discount"
+            style="float: left; height: 100px; width: 250px;"><?php echo $discount;?></textarea>
+      </span></td>
+    </tr>
+    <tr>
         <td><span style="height: 105px;"><span class="prelabel">地址</span></span></td>
         <td><span style="height: 105px;"> <textarea name="address"
             id="address"
@@ -257,9 +265,11 @@ var url = "../model/"+entryName+".php";
      $("<?php echo "#souper_$souper"; ?>").attr("checked",true);
      $("<?php echo "#wireless_$wireless"; ?>").attr("checked",true);
      $("<?php echo "#memberSupported_$memberSupported"; ?>").attr("checked",true);
-     
+
+        
      $("#selImg").click(function(e){
-    	 window.open('../scripts/jquery_upload_crop/upload_crop_v1.2.php','avatar');
+    	 var url = '../scripts/jquery_upload_crop/upload_pic/upload.php';
+    	 window.open(url);
          return false;
 
      }).button();
@@ -367,13 +377,6 @@ var url = "../model/"+entryName+".php";
      }; 
      var myRequest = new Request.JSON(options);
      myRequest.post("../model/shoppercatalog.php");    
-
-
-
-
-
-     
-
      var options = { 
                "target":        '#output2',   // target element(s) to be updated with server response 
                "url": url, // override for form's 'action' attribute 

@@ -90,6 +90,11 @@ class Result{
 
 class Utils{
 
+	public $homeImageBase = "/cs78/view/config/jquery_upload_crop/upload_pic/";
+
+	public function getHomeImageDir(){
+		return $_SERVER['DOCUMENT_ROOT'].$this->homeImageBase;
+	}
 	/**
 	 * 产生随机字符串
 	 *
@@ -143,7 +148,7 @@ class Utils{
 		return $files;
 	}
 
-	function  parseFileExt($file_name){
+	public  function  parseFileExt($file_name){
 		$extend = pathinfo($file_name);
 		if(isset($extend["extension"]))
 		$extend = strtolower($extend["extension"]);
@@ -313,6 +318,28 @@ class HtmlUtils extends  Utils{
 		header("Cache-Control: no-store, no-cache, must-revalidate");
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
+	}
+}
+Class ImageUpload{
+
+	public function upload($dir){
+		$names = array();
+		$util = new Utils();
+		if(function_exists("date_default_timezone_set") and function_exists("date_default_timezone_get"))
+		@date_default_timezone_set(@date_default_timezone_get());
+		if(isset($_POST["Submit"])){
+			$an = count($_FILES["myImagefile"]["name"]);
+			for($i=0;$i<$an;$i++){
+				$extname = $util->parseFileExt($_FILES["myImagefile"]["name"][$i]);
+				if($extname!=false){
+					$fileName = $util->randString(20).".".$extname;
+					array_push($names,$util->homeImageBase."/".$fileName);
+					$save_name = $dir."/".$fileName;
+					move_uploaded_file($_FILES["myImagefile"]["tmp_name"][$i],$save_name);
+				}
+			}
+		}
+		return join($names, ",");
 	}
 }
 require ('Smarty.class.php');

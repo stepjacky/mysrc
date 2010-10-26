@@ -4,6 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>吃遍长沙美食网-美食地图</title>
 <link href="styles/home/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+<script type="text/javascript" src="scripts/jScroll/jquery.jScroll.js"></script>
+<script type="text/javascript">
+{literal}
+$(function(){
+  
+	$(".scroll_one dl:odd a").css("color", "orange");
+	$(".scroll_one dl:even a").css("color", "#0B55C4");
+    $(".scroll_one").jScroll({vertical:true});
+	
+});
+{/literal}
+</script>
 </head>
 
 <body>
@@ -194,11 +207,10 @@
     <div class="mapRight">
 	
 		<!--优惠卡商家开始-->	
-    	<div class="yhsj">
+    	<div class="yhsj box scroll_one">
 			{section loop=$cardShoppers name=cardshop}
             <dl>
-				<dt><img src="{$cardShoppers[cardshop]['shopImage']}"  width="98"  height="75"/></dt>
-				<dd><a href="shopper.php?id={$cardShoppers[cardshop]['id']}">--{$cardShoppers[cardshop]['name']}</a></dd>
+				<dd><a href="shopper.php?id={$cardShoppers[cardshop]['id']}">{$cardShoppers[cardshop]['name']}</a></dd>
 			</dl>
             
             {/section}
@@ -208,11 +220,10 @@
 		
 		<div class="blank9"></div>
 		<!--每周荐店开始-->	
-		<div class="mzjd">
+		<div class="mzjd box scroll_one">
             {section loop=$weekShoppers name=wshopper}
 			<dl>
-				<dt><img src="{$weekShoppers['wshopper']['shopImage']}"  width="98"  height="75"/></dt>
-				<dd><a href="shopper.php?id={$weekShoppers['wshopper']['id']}">--{$weekShoppers['wshopper']['name']}</a></dd>
+				<dd style="text-align:left;"><a href="shopper.php?id={$weekShoppers[wshopper]['id']}">{$weekShoppers[wshopper]['name']}</a></dd>
 			</dl>
             {/section}
 			

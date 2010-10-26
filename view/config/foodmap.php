@@ -263,7 +263,7 @@ jQuery(document).ready(function($){
 <body>
 <table width="102%" border="1">
   <tr>
-    <th colspan="6" scope="col">精彩时尚设置</th>
+    <th colspan="6" scope="col">美食地图设置</th>
   </tr>
   <tr>
     <td width="28%" ><input type="button" id="uploadpic" value="上传图片" /></td>

@@ -146,7 +146,7 @@ function doConfig(){
     $ctype = $_POST['ctype'];
     $shopids = $_POST['shoppers'];
     $features = array();
-    $SQL[0] = "update $entryName set $ctype=false";
+    //$SQL[0] = "update $entryName set $ctype=false";
     $i=1;
     foreach ($shopids as $id){
         $SQL[$i++] = "update $entryName set $ctype=true where id=$id";
