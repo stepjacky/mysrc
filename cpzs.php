@@ -46,19 +46,24 @@
 <title>上海良宇</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="scripts/zoomer/zoomer.css" media="screen" />
+<style type="text/css" media="screen"> 
 
+
+
+
+#thumbs { position: relative; width: 100%; height: 100%; }
+div.thumb { float:right; padding: 1px; width: 100px; height: 110px; text-align:center;}
+div.thumb img { border: 2px solid white; width:80px; height:80px }
+</style> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
 <script type="text/javascript" src="scripts/zoomer/zoomer.js"></script> 
+<script type="text/javascript" src="scripts/jquery-hoverplugin/jquery.hoverpulse.js"></script> 
 <script type="text/javascript">
 $(document).ready(function(){
-	$('table.thumb td').Zoomer(
-			{
-				speedView:200,
-				speedRemove:300,
-				//altAnim:true,
-				//speedTitle:400,
-				debug:false
-			});
+	//$('div.thumb img').hoverpulse({
+     //   size: 40,  // number of pixels to pulse element (in each direction)
+     //   speed: 400 // speed of the animation 
+   // });
 });
 
 </script>
@@ -91,33 +96,76 @@ $(document).ready(function(){
 		</div>
 		 
 		<div class="ww400 right">
-			<table class="thumb">
-			   <?php 
-			     $columnNum = 4;
-			     for($i=0;$i<count($products);$i++){
-			     	if($i%$columnNum==0){
-			     		echo "<tr>";
-			     	}
-			     	
-			     
-			   ?>
-			       <td align="center">
-			        <dl>
-			        <dd><img src="pic/ban6.jpg" /></dd>
-			        <dd><span class="blue">产品名称</span></dd>
-			        </dl>
-			        
-			       </td>
-			     
-			   
-			   <?php 
-			     if(($i+1)%$columnNum==0){
-			     		echo "</tr>";
-			     	}
-			     
-			     }?>
-			</table>	
-			
+		<div id="thumbs"> 
+		<?php for($i=0;$i<count($products);$i++){} ?>
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+            <div class="thumb">
+              <dd><img src="pic/ban6.jpg" /></dd>
+              <dd><span  class="blue" style="text-align:center">产品名称</span></dd>
+            </div> 
+                  
+           
+         
+        </div>			
 		</div>
 		
 		<div class="clear"></div>
