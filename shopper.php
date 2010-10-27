@@ -130,12 +130,20 @@
    $smarty->assign("cookstyles",$cookstyles);
    
    $smarty->assign("type",$type);
+  
+   $shopper['sectionabout']=$util->encodeSearch($shopper['sectionabout'],",","search.php?word=");
+   $shopper['buildingabout']=$util->encodeSearch($shopper['buildingabout'],",","search.php?word=");
+   $shopper['buslines']=$util->encodeSearch($shopper['buslines'],",","search.php?word=");
    
+   //$util->logArray($shopper['sectionabout']);
+  
+      
    $smarty->assign("shopper",$shopper);
    
-      
+ 
+   $imagelist = $dao->executeQuery("select * from shopper_has_picture where shopperId=$id");
    
-   
+   $smarty->set("imageList", $imagelist);
    
    //$smarty->caching = 1;
    

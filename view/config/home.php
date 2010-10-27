@@ -5,7 +5,7 @@
 
 
   jQuery(document).ready(function($){
-
+      var tb = $("body");
 	  
       $("#dynpics").click(function(){
           return false;
@@ -164,7 +164,7 @@
   	                header: false,
   	                id: 'imageShowWindow_panel2',
   	                addClass: 'panelAlt',                   
-  	                contentURL: '../view/config/jquery_upload_crop/upload_pic/left.php',
+  	                contentURL: '../view/config/jquery_upload_crop/upload_pic/left.php?panel=imageShowWindow_panel1',
   	                column: 'imageShowWindow_sideColumn'                    
   	            });
              
@@ -324,15 +324,15 @@
                    sasa.append(opt.clone());
                    foods.append(opt.clone());
                   
-                   
+                  
                    var myfmeopt =  opt.clone();
-                   if(tmp.cookMenu)myfmeopt.attr("selected",true);
+                   if(tmp.cookMenu==1)myfmeopt.attr("selected",true);
                    myfme.append(myfmeopt);
                    var eastopt = opt.clone();
-                   if(tmp.eastCook)eastopt.attr("selected",true);
+                   if(tmp.eastCook==1)eastopt.attr("selected",true);
                    emenu.append(eastopt);
                    var westopt = opt.clone();
-                   if(tmp.westCook)westopt.attr("selected",true);
+                   if(tmp.westCook==1)westopt.attr("selected",true);
                    wmenu.append(westopt);
                    
                    //alert(cse.html());
@@ -422,6 +422,32 @@
 
     }).button();
 
+    $("#selectnewPic").click(function(){
+    	MyImageShowWindow();
+
+    }).button();
+    $("#applynew").click(function(){
+    	block(tb,"正在应用设置，稍后....");
+        var word =  $("#newword").val();
+        var req = new Request.JSON({
+            "url":"../model/config/home.php",
+            "onSuccess":function(msg){
+                 notify(msg.message); 
+                 unblock(tb);
+            },
+            "onFailure":function(xhr){
+                notify("错误: "+xhr.responseText); 
+
+            }
+        });
+        req.post({
+             "action":"updateNewShopper",
+             "image":selectImage,
+             "newword":word
+        });
+    	
+
+    }).button();
     //
     
   });//end of document ready function 
@@ -463,6 +489,18 @@
       </select>
     </label></td>
   </tr>  
+  <tr>
+    <td>最新推荐</td>
+    <td colspan="3">
+      <dd> 
+      <input type="button" id="selectnewPic" value="选择图片" />
+      <input type="button" id="applynew" value="应该设置" />
+      
+      </dd>
+      <dd> <textarea id="newword" style="width:300px;height:100px;"></textarea></dd>
+    </td>
+  </tr>
+  
   <tr>
     <td height="235" rowspan="12">广告位置 A</td>
     <td width="39%"><button class="setAdInfo" pos="a" style="width:100%">设置图片a</button></td>

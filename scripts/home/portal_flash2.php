@@ -21,23 +21,23 @@ echo <<<JSCODE
     imgUrl1="$image_0_image";
     imgtext1="11";
     imgLink1=escape("$image_0_href");
-    //imgLink1="";
+   
     
     imgUrl2="$image_1_image";
     imgtext2="22";
     imgLink2=escape('$image_1_href');
-    //imgLink2="";
+   
     
   
     imgUrl3="$image_2_image";
     imgtext3="33";
     imgLink3=escape("$image_2_href");
-    //imgLink3="";
+ 
 	
 	imgUrl4="$image_3_image";
     imgtext4="4555555";
     imgLink4=escape("$image_3_href");
-    //imgLink4="";
+   
 
     
      var focus_width=522;

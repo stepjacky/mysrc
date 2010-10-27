@@ -10,6 +10,11 @@ $util= new Utils();
 $dir = $util->getHomeImageDir();
 $files = $util->listFiles($dir,"php");
 //$util->logInfo($files);
+$panel='imageShowWindow_panel1';
+if(isset($_GET['panel'])){
+	$panel = $_GET['panel'];
+}
+
 ?>
 
 <script type="text/javascript">
@@ -17,7 +22,7 @@ function showImages(imgsrc){
 	   selectImage = imgsrc;
        //alert(selectImage);
 	   MUI.updateContent({
-		    element: $('imageShowWindow_panel1'),                    
+		    element: $("<?php echo $panel;?>"),                    
 		    url: '../view/config/jquery_upload_crop/upload_pic/shopperimage.php?imgsrc='+imgsrc,
 		    title: '店家图片',
 		    padding: { top: 8, right: 8, bottom: 8, left: 8 }

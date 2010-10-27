@@ -163,6 +163,13 @@ require_once 'tools/utils.php';
    
    $smarty->set("newjoins", $newjoins);
    
+   $sql = "select imagepath,word from homenewshopper";
+   $homenewshopper = $dao->executeQuery($sql);
+   
+   $smarty->set("homenewshopper", $homenewshopper);
+   
+   //$util->logArray($homenewshopper);
+   
   $smarty->allow_php_tag = true;
    
 

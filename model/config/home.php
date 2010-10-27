@@ -21,6 +21,7 @@ use data\BaseDao;
       case "search" : doSearch();break;
       case "updateflash" : doUpdateFlash();break;
       case "deleteImage" : doDeleteImage();break;
+      case "updateNewShopper":doUpdateNewShopper();break;
       default:
           echo 'error action code';
           exit(0);
@@ -33,6 +34,7 @@ function doUpdateCookMenu(){
     $dao = new BaseDao($entityName);
     $SQL=array();
     $fieldName = $_POST['fieldName'];
+    $SQL[]= "update $entityName set $fieldName=false";
     foreach ($_POST['id'] as $id){
         $SQL[] = "update $entityName set $fieldName=true where id=$id";
     }
@@ -53,6 +55,16 @@ function doUpdateSasa(){
     $rst->SUCCESS();
     
     
+}
+
+function doUpdateNewShopper(){
+	$entityName="homenewshopper";
+	$image = $_POST['image'];
+	$word = $_POST['newword'];
+    $sql[]="truncate table $entityName";
+	$sql[] = "insert into homenewshopper(imagepath,word) values('$image','$word')";
+	$dao =new BaseDao($entityName);
+	$dao->queryWithTransaction($sql);
 }
   
 function doUpdateNewFoods(){

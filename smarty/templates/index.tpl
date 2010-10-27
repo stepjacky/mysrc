@@ -125,10 +125,11 @@
 				</div>
 				
 				<div class="w183 right">
-					<p><img src="styles/pic/index/a01.jpg" /></p>
+					<p><img src="{$homenewshopper[0]['imagepath']}" style="width:182px;height:126px" /></p>
 					<div class="blank9"></div>
-					<p class="f14 red">中秋之夜</p>
-					<p class="white" style="padding:10px 20px 0 0px">9月22日就是中秋节了，赏月、吃月饼是必不可少的。那么，年年都吃月饼，今年</p>
+					<p class="white" style="padding:10px 20px 0 0px">
+                     {$homenewshopper[0]['word']}					
+					</p>
 				</div>
 				
 				<div class="clear"></div>

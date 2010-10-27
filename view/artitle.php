@@ -44,7 +44,7 @@ $titleImage = $util->getProperty($entry, "titleImage");
 $title   = $util->getProperty($entry, "title");
 $artitlecatalog_id = $util->getProperty($entry, "artitleCatalog_id");
 $pickword = $util->getProperty($entry, "pickword");
-
+$remark = $util->getProperty($entry, "remark");
 ?>
 <body>
 <div id="wapper">
@@ -63,6 +63,14 @@ $pickword = $util->getProperty($entry, "pickword");
         <td width="200">标题</td>
         <td><input name="title" type="text" style="width: 500px;"
             id="title" value="<?php echo $title;?>" /></td>
+    </tr>
+    <tr>
+        <td>文件摘要[可选]</td>
+        <td>
+      
+        <dd>这部分只有在文章在版面页显示需要显示摘要时填写</dd>
+          <dd><textarea name="remark" id="remark" style="width: 300px;height:100px"><?php echo $remark;?></textarea></dd>
+        </td>
     </tr>
     <tr>
         <td>热门词[多个用半角逗号隔开]</td>

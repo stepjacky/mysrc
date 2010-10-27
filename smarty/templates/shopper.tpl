@@ -11,11 +11,13 @@
 <link href="scripts/jgrowl/jquery.jgrowl.css" rel="stylesheet"
     type="text/css" />
 
-<link type="text/css" href="scripts/jquery.marquee//css/jquery.marquee.css" rel="stylesheet" title="default" media="all" />
+<link type="text/css" href="styles/shopper.css" rel="stylesheet" title="default" media="all" />
+<link type="text/css" href="scripts/jquery.marquee/css/jquery.marquee.css" rel="stylesheet" title="default" media="all" />
 <script type="text/javascript" src="scripts/jgrowl/jquery.jgrowl.js"></script>
 <script type="text/javascript" src="scripts/jquery.marquee/lib/jquery.marquee.js"></script>
 
 <script type="text/javascript" src="scripts/myutils.js"></script>
+<script type="text/javascript" src="scripts/shopper.js"></script>
 
 
 <script type="text/javascript">
@@ -293,16 +295,37 @@ $random = rand(3,6); for($i=0;$i<$random;$i++){ echo " <img
 
 <div class="blank9"></div>
 
-<div class="sjflash"><img
-    src="{$shopper['shopImage']|default:'styles/pic/sjym/flash.jpg'}"
-    style="width: 387px; height: 308px" />
+<div class="sjflash">
+<div class="folio_block">
+    	
+        <div class="main_view">
+
+            <div class="window">	
+                <div class="image_reel">
+                    {foreach from=$imageList key=imgidx item=image}
+                      <img src="{$image['imagePath']}" alt="{$shopper['name']}" style="width:387px;height:308px" />
+                    {/foreach}
+                </div>
+            </div>
+            <div class="paging">
+             {foreach from=$imageList key=imgidx item=image name=imgfor}
+                <a href="javascript:;" rel="{$smarty.foreach.imgfor.index+1}">{$smarty.foreach.imgfor.index+1}</a>
+             {/foreach}
+            </div>
+        </div>
+
+</div>	
+
+
+
 <div class="blank9"></div>
 
 <div class="sjdz">
 <ul>
-    <li>【地址】：{$shopper['address']}</li>
-    <li>【相关路段】：{$shopper['sectionabout']}</li>
-    <li>【周边建筑】：{$shopper['buildingabout']}</li>
+    <li style="color:blue;font-weight:bold;">【地址】：{$shopper['address']}</li>
+    <li style="color:blue;font-weight:bold;">【相关路段】：{$shopper['sectionabout']}</li>
+    <li style="color:blue;font-weight:bold;">【周边建筑】：{$shopper['buildingabout']}</li>
+    <li style="color:blue;font-weight:bold;">【公交路线】：{$shopper['buslines']}</li>
 </ul>
 </div>
 <div class="blank9"></div>
@@ -321,10 +344,10 @@ $random = rand(3,6); for($i=0;$i<$random;$i++){ echo " <img
     {$shopper['pcc_min']}元～{$shopper['pcc_max']}元</span> &nbsp;&nbsp;营业时间：<span
         class="orange">{$shopper['worktime']}</span></dd>
     <dd>拥有菜系： {foreach $cookstyles as $cooks} <a
-        href="cookshoppers.php?cookid={$cooks['id']}" target="_blank"> <span
+        href="search.php?word={$cooks['name']|urlencode}" target="_blank"> <span
         style="color: blue; font-weight: 800"> {$cooks['name']} </span>
     </a> &nbsp; {/foreach}</dd>
-    <dd>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型： <a href="catalogshoppers.php?cataId={$type['id']}"
+    <dd>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型： <a href="search.php?word={$type['name']|urlencode}"
         target="_blank"> <span style="color: #F60"> {$type['name']} </span>
     </a></dd>
     <dd>特色推荐：{$shopper['feature']}</dd>

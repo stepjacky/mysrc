@@ -319,6 +319,15 @@ class HtmlUtils extends  Utils{
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
 	}
+	public function encodeSearch($str,$dem,$url){
+		 $tmp = explode($dem, $str);
+		 $tas = array();
+		 foreach ($tmp as $wd){
+		 	array_push($tas, "<a style='color:blue ;font-size:12px;font-weight:bold' href='$url".urlencode($wd)."' target='_blank'>$wd</a>");
+		 }
+		 return join(" ", $tas);		
+		
+	}
 }
 Class ImageUpload{
 
@@ -574,6 +583,23 @@ class BaseDao{
 		return $entryList;
 	}
 
+	/**
+	 *@param   
+	 *   $keyColumn 要查询的列
+	 *   $sql  sql语句
+	 *@return 
+	 *   所有符合该列值数组
+	 */
+	public function executeForKeyedValue($keyColumn,$sql){
+		
+		$entryList = array();
+		$result = $this->query($sql);
+	    while($row = mysql_fetch_assoc($result)){
+           array_push($entryList, $row[$keyColumn]);   		     
+		}
+		return $entryList;
+	}
+	
 	public function executeForObject($sql){
 		return $this->queryForEntity($sql);
 			
@@ -597,8 +623,6 @@ class BaseDao{
 		}
 		$this->connect();
 		$sql = $this->strutSQLInsertor($values,$skipHtml);
-		$util = new Utils();
-		$util->logInfo($sql);
 		mysql_query($sql) or exit(mysql_error()." with sql [$sql]");
 		$lastId = $this->getLastInsertId();
 		$this->close();

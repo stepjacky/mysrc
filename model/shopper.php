@@ -98,11 +98,21 @@ function doCreate(){
     srand($seed); 
     $random =rand(1000,10000); 
     $values['moods']=$random;
+    $imagePaths = $values['shopImage'];
+    $images = explode(",", $imagePaths);
+    unset($values['shopImage']);
+    $values['shopImage'] = $images[0];
     $shoperId = $dao->create($values);
     $values = array("shopper_id"=>$shoperId,"cookstyle_id"=>$cookstyle);
     $dao = new BaseDao("shopper_has_cookstyle");
-    
     $dao->create($values);
+    $sql = "insert into shopper_has_picture (shopperid,imagePath)  values";
+    $sqlvalues="";
+    foreach ($images as $img){
+     	$sqlvalues = $sqlvalues."('$shoperId','$img'),";
+    }
+    $sql = $sql.substr($sqlvalues, 0,strlen($sqlvalues)-1);
+    $dao->executeUpdate($sql);
     $rst = new Result();
     $rst->CREATE_SUCCESS();
 }

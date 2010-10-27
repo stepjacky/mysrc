@@ -68,6 +68,13 @@ while($crow= mysql_fetch_assoc($cresult)){
 }
 $cookstyleJson = jsonEncode($cookstyles);
 
+$sql =  "select imagePath from shopper_has_picture where shopperId=$shopperId";
+
+
+$pics = $dao->executeForKeyedValue("imagePath",$sql);
+
+$imagePath = join($pics, ",");
+
 ?>
 <body>
 <div id="wapper">
@@ -114,8 +121,7 @@ $cookstyleJson = jsonEncode($cookstyles);
     <tr>
         <td><span style="height: 105px;"><span class="prelabel">图片</span></span></td>
         <td>
-        <input type="hidden" id="shopImg" name="shopImage" value="<?php echo $shopImage;?>" />
-        <label id="shopImgText"><?php echo $shopImage;?></label>
+        <input type="hidden" id="shopImg" name="shopImage" value="<?php echo $imagePath;?>" />
             
         <button id="selImg">上传图片</button>
         <button id="setImg">选择图片</button>

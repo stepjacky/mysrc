@@ -1,23 +1,10 @@
 <?php 
-   require_once 'tools/utils.php';
-   use utils\MySmarty;
-   
-   
-   $smarty = new MySmarty();
-   
-   $smarty->assign("lnum",10);
-   
-   $sc = "sliverlight";
-   
-   $tmp = isset($sc)?:"flash";
-   
-   echo $tmp;
-   
-   $smarty->display("test.tpl");
-   
-   function asdf(){
-   	 
-   	
-   }
+  $imgs = '宋上的发生的,撒的发生大幅,哀伤的发生大幅,撒的发生大幅,';
+  echo preg_replace("/(.+),/i",urlencode("$0"),$imgs);
+
   
+ $string = 'April 15, 2003';
+$pattern = '/(\w+) (\d+), (\d+)/i';
+$replacement = '${1}1,$3';
+echo preg_replace($pattern, $replacement, $string);
 ?>

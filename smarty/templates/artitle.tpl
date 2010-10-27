@@ -41,15 +41,11 @@
             </div>
             <div class="clear"></div>
         </div>
-       
-         {$artitle['content']}
-        
+       <div style="width:100%;margin-left:5px;text-align: justify;word-break:break-all;">
+       {$artitle['content']}
+       </div>
     <div class="blank9"></div>
-        
-        
   </div>
-    
-    
   <div class="sjright">
 	     
 <div class="blank2"></div>
