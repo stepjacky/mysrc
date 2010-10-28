@@ -11,7 +11,7 @@
 </ul>
 <div class="clear"></div>
 <div>
-<div class="logo"><img src="styles/pic/logo.jpg" /></div>
+<div class="logo"><img src="styles/pic/logo.png" /></div>
 <ul id="menu">
     <li class="nav1"><span><a href="index.php" class="ttCur" onfocus="this.blur()">美食首页</a></span></li>
     <li class="nav2"><span><a href="msMap.php" onfocus="this.blur()">美食地图</a></span></li>

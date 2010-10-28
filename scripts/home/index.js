@@ -16,3 +16,9 @@ function ClearNews(name, num, class1, class2) {
 		}
 	}
 }
+$(function(){
+	$(".sample ul").easyListSplitter({ 
+		colNumber: 1 // Insert here the number of columns you want. Consider that the plugin will create the number of cols requested only if there's enough items in the list.
+	});	
+	
+});

@@ -1,0 +1,75 @@
+.sample {
+	/*margin: 30px;*/
+	border: 1px solid #92cdec;
+	background: #d7e7ff;
+	
+}
+
+.sample ul,.sample ol {
+	list-style-type: none;
+	background: url(images/dotted.gif) 0 0 repeat-x;
+	width: 180px;
+	float: left;
+	
+}
+
+.sample li {
+	background: url(images/dotted.gif) bottom left repeat-x;
+	width: 100%;
+	float: left;
+	padding: 0
+}
+
+.sample li a {
+	padding: 5px 20px 5px 0;
+	width: 100%;
+	float: left;
+	background: url(images/arrow-right.gif) right 12px no-repeat;
+	text-decoration: none;
+	color: #000
+}
+
+.sample li a:hover {
+	background-image: url(images/arrow-right-dark.gif)
+}
+
+.sample ul.children-sample {
+	border-top: 1px solid #294F88;
+	background: none;
+	width: 300px;
+	margin: 0 20px 30px 0
+}
+
+.sample ul.children-sample li {
+	border-bottom: 1px solid #294F88;
+	background: none;
+	padding: 5px 15px 3px 10px;
+	width: 275px;
+}
+
+.sample ul.children-sample ul {
+	background: none;
+	margin-bottom: 10px
+}
+
+.sample ul.children-sample ul li {
+	background: transparent;
+	color: #000000;
+	border: 0;
+	font-size: .8em;
+	padding: 0 0 0 15px;
+	margin-bottom: 5px;
+	background: url(images/arrow-right-grey.gif) left 1px no-repeat;
+}
+
+.sample ul.children-sample h3 {
+	font-size: 1em;
+	margin-bottom: 8px
+}
+
+.sample ul.children-sample p {
+	line-height: 130%;
+	font-size: 1em;
+	margin: 0 0 10px 0;
+	padding: 0
+}

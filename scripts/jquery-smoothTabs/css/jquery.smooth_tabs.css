@@ -1,0 +1,53 @@
+#wrapper{
+    width: 507px;
+    height: 335px;
+    margin: 0 auto;
+    padding: 0 13px;
+    background-image: url('../img/slideTabbg.png');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+}
+.smoothTabs ul{
+    width: 515px;
+    height: 61px;
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+.smoothTabs li{
+    width: 123px;
+    height: 39px;
+    float: left;
+    display: inline;
+    margin: 0 5px 0 0;
+    padding: 22px 0 0 0;
+    color: #a90000;
+    cursor: pointer;
+    text-align: center;
+}
+.smoothTabs li:hover{
+    background-image: url('../img/section_bg.png');
+    background-repeat: no-repeat;
+    color: #ffffff;
+    opacity: 0.6;
+}
+.smoothTabs div{
+    width: 495px;
+    padding: 0 5px 0 5px;
+}
+li.smoothTabsLiCurrent{
+    background-image: url('../img/section_bg.png');
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+.smoothTabsDivHidden {
+    display: none;
+}
+.smoothTabsDivVisible{
+    
+}

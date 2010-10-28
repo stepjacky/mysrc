@@ -4,12 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>吃遍长沙美食网-美食主页</title>
 <link href="styles/home/style.css" rel="stylesheet" type="text/css" />
+<link href="scripts/jquery-easylist/css/style.css" rel="stylesheet" type="text/css" />
 <!-- 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
  -->
 <script type="text/javascript" src="scripts/jquery/jquery-1.4.2.js"></script>
+<script src="scripts/jquery-easylist/jquery.easyListSplitter.js" type="text/javascript"></script>
 <script src="scripts/home/index.js" type="text/javascript"></script>
 </head>
+
 
 <body>
 <div class="main">
@@ -18,19 +21,8 @@
     <!--头部内容结束-->
     
 <div class="dqwz">您当前的位置：吃遍长沙美食网 >主页</div>
-	<div class="indtab1">
-		<ul>
-        <!--
-			<li><a href="javascript:void(0)"><img align="absmiddle" src="styles/pic/index/ico1.gif" />加入收藏</a></li>
-			<li><a href="javascript:void(0)"><img align="absmiddle" src="styles/pic/index/ico2.gif" />美食每日快报</a></li>
-			<li><a href="javascript:void(0)"><img align="absmiddle" src="styles/pic/index/ico3.gif" />每月荐店专题</a></li>
-		 -->
-        </ul>
-	</div>  
-    <div class="blank9"></div>
-	
 	<div class="left mr5 w200">
-		<div class="indSear">
+	<div class="indSear">
 	  <table width="182" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td height="22" colspan="2">
@@ -57,16 +49,16 @@
       </table>
 	  </div>
 	  <div class="blank9"></div>
-	  
-	  <div class="zxjr">
-	  		<h3>最新加盟商家</h3>
-			<ul class="list4">
+	 <!-- class="list4" class="zxjr"-->
+	  <h3 class="zxjrh3">最新加盟商家</h3>
+	  <div class="sample" >
+	  		<ul>
 				{foreach from=$newjoins key=nindex item=shopper}
                 <li>
                    <a href="shopper.php?id={$shopper['id']}" target="_blank">
                             {$shopper['name']|default:'未设置名字'}
                    </a>        
-          </li>
+                </li>
 				{/foreach}
 	   </ul>
 	  </div>
@@ -145,23 +137,27 @@
 		<div class="indTit1">
 			最新优惠信息
 		</div>
+		<div class="sample">
 		<ul class="list">
                 {foreach from=$newsasa key=nindex item=artitle}
-				<li><span class="red">·[NEW]</span>
+				<li>
                    <a href="artitle.php?id={$artitle['id']}" target="_blank"> 
                      {$artitle['title']}
                    </a></li>
 				{/foreach}
                 
                 
-	  </ul>
+	    </ul>
+	    </div>
 	  
 	  <div class="blank9"></div>
 	  
 	  <div class="indTit1">
 			最新美食排名
       </div>
-			<ul class="phb">
+        <div class="sample">
+        
+			<ul>
                   {foreach from=$newfoods key=nindex item=artitle}
 					<li><span>{$artitle['moods']}</span>
                     <a href="artitle.php?id={$artitle['id']}" target="_blank">
@@ -170,7 +166,7 @@
                     </li>
 			    {/foreach}
 				</ul>
-			
+	  </div>
 
 	</div>
 	
